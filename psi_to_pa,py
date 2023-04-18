@@ -1,0 +1,55 @@
+def psi_to_pa(psi):
+    return psi * 6894.76
+
+def pa_to_psi(pa):
+    return pa / 6894.76
+
+def atm_to_pa(atm):
+    return atm * 101325
+
+def pa_to_atm(pa):
+    return pa / 101325
+
+def bar_to_pa(bar):
+    return bar * 100000
+
+def pa_to_bar(pa):
+    return pa / 100000
+
+def torr_to_pa(torr):
+    return torr * 133.322
+
+def pa_to_torr(pa):
+    return pa / 133.322
+
+def main():
+    pressure = float(input("Введите значение давления: "))
+    unit_from = input("Введите единицу измерения (psi, atm, bar, torr): ")
+    unit_to = input("Введите единицу перевода (psi, atm, bar, torr): ")
+
+    if unit_from == "psi":
+        pressure_pa = psi_to_pa(pressure)
+    elif unit_from == "atm":
+        pressure_pa = atm_to_pa(pressure)
+    elif unit_from == "bar":
+        pressure_pa = bar_to_pa(pressure)
+    elif unit_from == "torr":
+        pressure_pa = torr_to_pa(pressure)
+    else:
+        pressure_pa = pressure
+
+    if unit_to == "psi":
+        result = pa_to_psi(pressure_pa)
+    elif unit_to == "atm":
+        result = pa_to_atm(pressure_pa)
+    elif unit_to == "bar":
+        result = pa_to_bar(pressure_pa)
+    elif unit_to == "torr":
+        result = pa_to_torr(pressure_pa)
+    else:
+        result = pressure_pa
+
+    print(f"{pressure} {unit_from} = {result:.4f} {unit_to}")
+
+if __name__ == '__main__':
+    main()
